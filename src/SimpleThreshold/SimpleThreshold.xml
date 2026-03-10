@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <executable>
-    <category>MIATT.HW04.hawkidhereXXXX</category>
+    <category>MIATT.HW04.ocxXXXX</category>
     <title>make a good title here XXXX</title>
     <description>
         Does something astonishing
@@ -64,6 +64,4 @@
             <description>Output filtered</description>
         </image>
     </parameters>
-
-    <-- Other parameters here -->
 </executable>

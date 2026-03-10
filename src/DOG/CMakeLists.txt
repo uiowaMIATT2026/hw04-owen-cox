@@ -1,5 +1,7 @@
 
-set(DOG_SOURCE DOG.cxx)
+set(DOG_SOURCE DOG.cxx
+        ../GaussianLPF/GaussianLPF.cxx
+        ../GradientAD/GradientAD.cxx)
 GENERATECLP(DOG_SOURCE DOG.xml)
 
 

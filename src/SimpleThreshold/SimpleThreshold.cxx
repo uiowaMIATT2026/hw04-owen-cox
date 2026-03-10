@@ -14,37 +14,42 @@ int main (int argc, char * argv[])
   PARSE_ARGS;  // <--- This is always the first line and is defined in SimpleThresholdCLP.h
 
   // Thresholding example from ITK examples site:
-  if (argc != 5)
-  {
-    std::cerr << "Usage: " << std::endl;
-    std::cerr << argv[0];
-    std::cerr << " <InputFileName> <OutputFileName> <Lower Threshold> <Upper Threshold>";
-    std::cerr << std::endl;
-    return EXIT_FAILURE;
-  }
+//  if (argc != 5)
+//  {
+//    std::cerr << "Usage: " << std::endl;
+//    std::cerr << argv[0];
+//    std::cerr << " <InputFileName> <OutputFileName> <Lower Threshold> <Upper Threshold>";
+//    std::cerr << std::endl;
+//    return EXIT_FAILURE;
+//  }
 
-  const char * inputFileName = argv[1];
-  const char * outputFileName = argv[2];
+  //const char * inputFileName = argv[1];
+  //const char * outputFileName = argv[2];
 
-  constexpr unsigned int Dimension = 2;
+  constexpr unsigned int Dimension = 3;
 
-  using PixelType = unsigned char;
+  using PixelType = float;
   using ImageType = itk::Image<PixelType, Dimension>;
 
-  const auto input_image = itk::ReadImage<ImageType>(inputFileName);
+  const auto input_image = itk::ReadImage<ImageType>(input);
 
-  unsigned char lowerThreshold = std::stoi(argv[3]);
-  unsigned char upperThreshold = std::stoi(argv[4]);
+  //double test = lowThreshold;
+
+
+  //unsigned char lowerThreshold = std::stoi(argv[3]);
+  //unsigned char upperThreshold = std::stoi(argv[4]);
 
   using FilterType = itk::ThresholdImageFilter<ImageType>;
   auto filter = FilterType::New();
   filter->SetInput(input_image);
-  filter->ThresholdOutside(lowerThreshold, upperThreshold);
+  filter->ThresholdOutside(lowThreshold, highThreshold);
   filter->SetOutsideValue(0);
 
   try
   {
-    itk::WriteImage(filter->GetOutput(), outputFileName);
+    itk::WriteImage(filter->GetOutput(), output);
+    filter->Update();
+    return EXIT_SUCCESS;
   }
   catch (const itk::ExceptionObject & error)
   {
@@ -56,5 +61,5 @@ int main (int argc, char * argv[])
 //            << std::endl;
 //  std::cout << "The input volume is: " << inputVolume << std::endl;
 //  std::cout << "The output volume is: " << outputVolume << std::endl;
-  return EXIT_SUCCESS;
+//  return EXIT_SUCCESS;
 }

@@ -19,6 +19,45 @@
         </description>
 
         <double>
+            <name>timeStep</name>
+            <longflag>timeStep</longflag>
+            <description>Time step</description>
+            <label>Time step</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>.001</minimum>
+                <maximum>1</maximum>
+                <step>.001</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>conductance</name>
+            <longflag>conductance</longflag>
+            <description>Conductance</description>
+            <label>conductance</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>.001</minimum>
+                <maximum>10</maximum>
+                <step>.001</step>
+            </constraints>
+        </double>
+
+        <integer>
+            <name>numberOfIterations</name>
+            <longflag>iterations</longflag>
+            <description>Number of iterations</description>
+            <label>Iterations</label>
+            <default>1</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>30</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+
+        <double>
             <name>sigma</name>
             <longflag>sigma</longflag>
             <description>Sigma value</description>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <executable>
     <category>MIATT.HW04.ocx2026</category>
-    <title>Gaussian LPF</title>
+    <title>Gradient AD</title>
     <description>
-        Applies Gaussian LPF using ITK
+        Applies Gradient AD using ITK
     </description>
     <version>97.0</version>
     <documentation-url></documentation-url>
@@ -12,10 +12,10 @@
 
     <parameters>
         <label>
-            Difference of Gaussian Parameters
+            Gradient Anisotropic Diffusion Parameters
         </label>
         <description>
-            Parameters for DOG
+            Parameters for Gradient AD
         </description>
 
         <double>

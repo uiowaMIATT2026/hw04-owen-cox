@@ -1,7 +1,8 @@
 
 set(DOG_SOURCE DOG.cxx
         ../GaussianLPF/GaussianLPF.cxx
-        ../GradientAD/GradientAD.cxx)
+        ../GradientAD/GradientAD.cxx
+        ../CurvatureAD/CurvatureAD.cxx)
 GENERATECLP(DOG_SOURCE DOG.xml)
 
 

@@ -19,56 +19,31 @@
         </description>
 
         <double>
-            <name>lowThreshold</name>
-            <longflag>lowThreshold</longflag>
-            <description>Low threshold</description>
-            <label>Low threshold</label>
+            <name>sigma1</name>
+            <longflag>sigma1</longflag>
+            <description>First sigma value</description>
+            <label>First sigma value</label>
             <default>0.0625</default>
             <constraints>
                 <minimum>.001</minimum>
-                <maximum>1</maximum>
+                <maximum>10000</maximum>
                 <step>.001</step>
             </constraints>
         </double>
 
         <double>
-            <name>highThreshold</name>
-            <longflag>highThreshold</longflag>
-            <description>High threshold</description>
-            <label>High threshold</label>
+            <name>sigma2</name>
+            <longflag>sigma2</longflag>
+            <description>Second sigma value</description>
+            <label>Second sigma value</label>
             <default>0.0625</default>
             <constraints>
                 <minimum>.001</minimum>
-                <maximum>1</maximum>
+                <maximum>10000</maximum>
                 <step>.001</step>
             </constraints>
         </double>
 
-        <integer>
-            <name>outsideValue</name>
-            <longflag>outsideValue</longflag>
-            <description>Outside value</description>
-            <label>Outside value</label>
-            <default>333</default>
-            <constraints>
-                <minimum>1</minimum>
-                <maximum>999</maximum>
-                <step>1</step>
-            </constraints>
-        </integer>
-
-        <integer>
-            <name>insideValue</name>
-            <longflag>insideValue</longflag>
-            <description>Inside value</description>
-            <label>Inside value</label>
-            <default>666</default>
-            <constraints>
-                <minimum>1</minimum>
-                <maximum>999</maximum>
-                <step>1</step>
-            </constraints>
-        </integer>
 
     </parameters>
 
@@ -76,14 +51,14 @@
         <label>IO</label>
         <description>Input/output parameters</description>
         <image>
-            <name>input</name>
+            <name>inputVolume</name>
             <longflag>inputVolume</longflag>
             <label>Input Volume</label>
             <channel>input</channel>
             <description>Input volume to be filtered</description>
         </image>
         <image>
-            <name>output</name>
+            <name>outputVolume</name>
             <longflag>outputVolume</longflag>
             <label>Output Volume</label>
             <channel>output</channel>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.ocx2026</category>
+    <title>DOG</title>
+    <description>
+        Applies difference of Gaussians using ITK
+    </description>
+    <version>97.0</version>
+    <documentation-url></documentation-url>
+    <license></license>
+    <contributor>Hans J. Johnson</contributor>
+
+    <parameters>
+        <label>
+            Difference of Gaussian Parameters
+        </label>
+        <description>
+            Parameters for DOG
+        </description>
+
+        <double>
+            <name>lowThreshold</name>
+            <longflag>lowThreshold</longflag>
+            <description>Low threshold</description>
+            <label>Low threshold</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>.001</minimum>
+                <maximum>1</maximum>
+                <step>.001</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>highThreshold</name>
+            <longflag>highThreshold</longflag>
+            <description>High threshold</description>
+            <label>High threshold</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>.001</minimum>
+                <maximum>1</maximum>
+                <step>.001</step>
+            </constraints>
+        </double>
+
+        <integer>
+            <name>outsideValue</name>
+            <longflag>outsideValue</longflag>
+            <description>Outside value</description>
+            <label>Outside value</label>
+            <default>333</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>999</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+
+        <integer>
+            <name>insideValue</name>
+            <longflag>insideValue</longflag>
+            <description>Inside value</description>
+            <label>Inside value</label>
+            <default>666</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>999</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+
+    </parameters>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>input</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>output</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output filtered</description>
+        </image>
+    </parameters>
+</executable>

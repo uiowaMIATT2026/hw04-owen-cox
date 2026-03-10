@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.ocx2026</category>
+    <title>Gaussian LPF</title>
+    <description>
+        Applies Gaussian LPF using ITK
+    </description>
+    <version>97.0</version>
+    <documentation-url></documentation-url>
+    <license></license>
+    <contributor>Hans J. Johnson</contributor>
+
+    <parameters>
+        <label>
+            Difference of Gaussian Parameters
+        </label>
+        <description>
+            Parameters for DOG
+        </description>
+
+        <double>
+            <name>sigma</name>
+            <longflag>sigma</longflag>
+            <description>Sigma value</description>
+            <label>Sigma value</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>.001</minimum>
+                <maximum>10000</maximum>
+                <step>.001</step>
+            </constraints>
+        </double>
+
+    </parameters>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output filtered</description>
+        </image>
+    </parameters>
+</executable>

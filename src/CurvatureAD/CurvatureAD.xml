@@ -62,7 +62,7 @@
             <longflag>sigma</longflag>
             <description>Sigma value</description>
             <label>Sigma value</label>
-            <default>0.0625</default>
+            <default>1</default>
             <constraints>
                 <minimum>.001</minimum>
                 <maximum>10000</maximum>

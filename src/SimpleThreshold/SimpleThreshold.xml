@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <executable>
-    <category>MIATT.HW04.ocx2026</category>
+    <category>MIATT.HW04.ocx</category>
     <title>Simple Threshold</title>
     <description>
         Applies simple thresholding using ITK

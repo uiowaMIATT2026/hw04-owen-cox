@@ -1,6 +1,5 @@
 
-set(SimpleThreshold_SOURCE SimpleThreshold.cxx
-        ../DOG/DOG.cxx)
+set(SimpleThreshold_SOURCE SimpleThreshold.cxx)
 GENERATECLP(SimpleThreshold_SOURCE SimpleThreshold.xml)
 
 

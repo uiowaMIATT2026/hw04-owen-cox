@@ -6,7 +6,7 @@
 #include <iostream>
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
-#include "itkThresholdImageFilter.h"
+#include "itkBinaryThresholdImageFilter.h"
 
 
 int main (int argc, char * argv[])
@@ -28,27 +28,22 @@ int main (int argc, char * argv[])
 
   constexpr unsigned int Dimension = 3;
 
-  using PixelType = signed short;
+  using PixelType = unsigned char;
   using ImageType = itk::Image<PixelType, Dimension>;
 
-  const auto input_image = itk::ReadImage<ImageType>(input);
-
-  //double test = lowThreshold;
-
-
-  //unsigned char lowerThreshold = std::stoi(argv[3]);
-  //unsigned char upperThreshold = std::stoi(argv[4]);
-
-  using FilterType = itk::ThresholdImageFilter<ImageType>;
+  using FilterType = itk::BinaryThresholdImageFilter<ImageType, ImageType>;
   auto filter = FilterType::New();
-  filter->SetInput(input_image);
-  filter->ThresholdOutside(lowThreshold, highThreshold);
-  filter->SetOutsideValue(0);
+
+  filter->SetInput(input);
+
+  filter->SetLowerThreshold(lowThreshold);
+  filter->SetUpperThreshold(highThreshold);
+  filter->SetOutsideValue(outsideValue);
+  filter->SetInsideValue(insideValue);
 
   try
   {
     itk::WriteImage(filter->GetOutput(), output);
-    filter->Update();
   }
   catch (const itk::ExceptionObject & error)
   {

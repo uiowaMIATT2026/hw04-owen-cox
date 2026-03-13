@@ -28,7 +28,7 @@ int main (int argc, char * argv[])
 
   constexpr unsigned int Dimension = 3;
 
-  using PixelType = float;
+  using PixelType = signed short;
   using ImageType = itk::Image<PixelType, Dimension>;
 
   const auto input_image = itk::ReadImage<ImageType>(input);

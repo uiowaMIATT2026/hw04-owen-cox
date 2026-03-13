@@ -57,19 +57,6 @@
             </constraints>
         </integer>
 
-        <double>
-            <name>sigma</name>
-            <longflag>sigma</longflag>
-            <description>Sigma value</description>
-            <label>Sigma value</label>
-            <default>1</default>
-            <constraints>
-                <minimum>.001</minimum>
-                <maximum>10000</maximum>
-                <step>.001</step>
-            </constraints>
-        </double>
-
     </parameters>
 
     <parameters>

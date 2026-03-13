@@ -18,41 +18,41 @@
             Parameters for..
         </description>
 
-        <double>
+        <integer>
             <name>lowThreshold</name>
             <longflag>lowThreshold</longflag>
             <description>Low threshold</description>
             <label>Low threshold</label>
-            <default>0.0625</default>
+            <default>100</default>
             <constraints>
-                <minimum>.001</minimum>
-                <maximum>1</maximum>
-                <step>.001</step>
+                <minimum>1</minimum>
+                <maximum>1000</maximum>
+                <step>1</step>
             </constraints>
-        </double>
+        </integer>
 
-        <double>
+        <integer>
             <name>highThreshold</name>
             <longflag>highThreshold</longflag>
             <description>High threshold</description>
             <label>High threshold</label>
-            <default>0.0625</default>
+            <default>150</default>
             <constraints>
-                <minimum>.001</minimum>
-                <maximum>1</maximum>
-                <step>.001</step>
+                <minimum>1</minimum>
+                <maximum>1000</maximum>
+                <step>1</step>
             </constraints>
-        </double>
+        </integer>
 
         <integer>
             <name>outsideValue</name>
             <longflag>outsideValue</longflag>
             <description>Outside value</description>
             <label>Outside value</label>
-            <default>333</default>
+            <default>100</default>
             <constraints>
                 <minimum>1</minimum>
-                <maximum>999</maximum>
+                <maximum>1000</maximum>
                 <step>1</step>
             </constraints>
         </integer>
@@ -62,10 +62,10 @@
             <longflag>insideValue</longflag>
             <description>Inside value</description>
             <label>Inside value</label>
-            <default>666</default>
+            <default>200</default>
             <constraints>
                 <minimum>1</minimum>
-                <maximum>999</maximum>
+                <maximum>1000</maximum>
                 <step>1</step>
             </constraints>
         </integer>

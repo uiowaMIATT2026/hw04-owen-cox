@@ -21,7 +21,7 @@ int main (int argc, char * argv[])
 //    std::cerr << " <InputFileName> <OutputFileName> <Lower Threshold> <Upper Threshold>";
 //    std::cerr << std::endl;
 //    return EXIT_FAILURE;
-//  }
+//  }//test
 
   //const char * inputFileName = argv[1];
   //const char * outputFileName = argv[2];

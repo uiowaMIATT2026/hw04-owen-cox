@@ -9,6 +9,8 @@
 #include "itkImage.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
+#include "itkRescaleIntensityImageFilter.h"
+#include "itkCastImageFilter.h"
 
 // test
 
@@ -17,10 +19,17 @@ int main (int argc, char * argv[])
 {
   PARSE_ARGS;
 
+  if (sigma1 == sigma2) {
+    std::cerr << "Error: sigma1 and sigma2 must be different." << std::endl;
+    return EXIT_FAILURE;
+  }
+
   constexpr unsigned int Dimension = 3;
 
-  using PixelType = unsigned char;
+  using PixelType = float;
+  using OutputPixelType = unsigned char;
   using ImageType = itk::Image<PixelType, Dimension>;
+  using OutputImageType = itk::Image<OutputPixelType, Dimension>;
 
   const auto inputImage = itk::ReadImage<ImageType>(inputVolume);
 
@@ -41,7 +50,23 @@ int main (int argc, char * argv[])
     subtractFilter->SetInput1(smoothFilter1->GetOutput());
     subtractFilter->SetInput2(smoothFilter2->GetOutput());
 
-    itk::WriteImage(subtractFilter->GetOutput(), outputVolume);
+    // Make sure to rescale
+
+    using FilterType = itk::RescaleIntensityImageFilter<ImageType, ImageType>;
+    auto rescaleFilter = FilterType::New();
+
+    rescaleFilter->SetInput(subtractFilter->GetOutput());
+    rescaleFilter->SetOutputMinimum(0);
+    rescaleFilter->SetOutputMaximum(255);
+
+    // Next, I need to make sure output image is unsigned char as described in homework description
+
+    using CastFilterType = itk::CastImageFilter<ImageType, OutputImageType>;
+    auto castFilter = CastFilterType::New();
+
+    castFilter->SetInput(rescaleFilter->GetOutput());
+
+    itk::WriteImage(castFilter->GetOutput(), outputVolume);
   }
   catch (const itk::ExceptionObject & error)
   {

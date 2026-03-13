@@ -23,10 +23,10 @@
             <longflag>sigma1</longflag>
             <description>First sigma value</description>
             <label>First sigma value</label>
-            <default>0.0625</default>
+            <default>1</default>
             <constraints>
                 <minimum>.001</minimum>
-                <maximum>10</maximum>
+                <maximum>100</maximum>
                 <step>.001</step>
             </constraints>
         </double>
@@ -36,10 +36,10 @@
             <longflag>sigma2</longflag>
             <description>Second sigma value</description>
             <label>Second sigma value</label>
-            <default>0.0625</default>
+            <default>1.5</default>
             <constraints>
                 <minimum>.001</minimum>
-                <maximum>10</maximum>
+                <maximum>100</maximum>
                 <step>.001</step>
             </constraints>
         </double>

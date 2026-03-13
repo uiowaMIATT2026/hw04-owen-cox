@@ -49,7 +49,6 @@ int main (int argc, char * argv[])
   {
     itk::WriteImage(filter->GetOutput(), output);
     filter->Update();
-    return EXIT_SUCCESS;
   }
   catch (const itk::ExceptionObject & error)
   {
@@ -57,9 +56,5 @@ int main (int argc, char * argv[])
     return EXIT_FAILURE;
   }
 
-//  std::cout << "The number of iterations is: " << numberOfIterations
-//            << std::endl;
-//  std::cout << "The input volume is: " << inputVolume << std::endl;
-//  std::cout << "The output volume is: " << outputVolume << std::endl;
-//  return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }

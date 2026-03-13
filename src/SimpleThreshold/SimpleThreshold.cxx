@@ -28,14 +28,16 @@ int main (int argc, char * argv[])
 
   constexpr unsigned int Dimension = 3;
 
-  using PixelType = unsigned char;
+  using PixelType = signed short;
   using ImageType = itk::Image<PixelType, Dimension>;
+
+  const auto inputImage = itk::ReadImage<ImageType>(inputVolume);
+
 
   using FilterType = itk::BinaryThresholdImageFilter<ImageType, ImageType>;
   auto filter = FilterType::New();
 
-  filter->SetInput(input);
-
+  filter->SetInput(inputImage);
   filter->SetLowerThreshold(lowThreshold);
   filter->SetUpperThreshold(highThreshold);
   filter->SetOutsideValue(outsideValue);
@@ -43,7 +45,7 @@ int main (int argc, char * argv[])
 
   try
   {
-    itk::WriteImage(filter->GetOutput(), output);
+    itk::WriteImage(filter->GetOutput(), outputVolume);
   }
   catch (const itk::ExceptionObject & error)
   {
